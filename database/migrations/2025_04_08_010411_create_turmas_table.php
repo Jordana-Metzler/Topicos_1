@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('turmas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('unidades_id');
+            $table->unsignedBigInteger('professores_id');
+            $table->string('nome', 100);
+            $table->string('dias_aula', 15);
+            $table->string('horario', 5);
+            $table->foreign('unidades_id')->references('id')->on('unidades')->onDelete('cascade');
+            $table->foreign('professores_id')->references('id')->on('professores')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('professores', function (Blueprint $table) {
             $table->id();
+            $table->string('nome', 100);
+            $table->string('email', 100);
+            $table->string('telefone', 11);
             $table->timestamps();
         });
     }
